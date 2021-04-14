@@ -1,0 +1,1 @@
+web: gunicorn dencoin.wsgi --log-file - 
