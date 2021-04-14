@@ -1,0 +1,76 @@
+Login
+http://127.0.0.1:8000/api/token/login/
+form data:
+username:string
+password:string
+
+Logout
+http://127.0.0.1:8000/api/token/logout/
+Headers
+Authorization:Token 4534aa014e468c4dc3dcaaa4a30d5442fba43786
+
+Change Password
+http://127.0.0.1:8000/api/users/set_password/
+Headers
+Authorization:Token 4534aa014e468c4dc3dcaaa4a30d5442fba43786
+Form-data
+new_password:string
+current_password:string
+
+
+Forgot Password
+
+Step1:Send Mail
+http://127.0.0.1:8000/api/users/reset_password/
+form-data
+email:string
+
+Step2:Confirm
+http://127.0.0.1:8000/api/users/reset_password_confirm/
+form-data
+uid:string(send in mail)
+token:string(send in mail)
+new_password:string
+
+##################################################################
+Register New user(POST)
+Body:
+http://localhost:8000/api/registernewuser/
+
+ {
+        "username": "newhayden",
+        "first_name": "hayden",
+        "last_name": "cordeiro",
+        "email":"newcordeirohayden@gmail.com",
+        "password":"xyz"
+}
+##################################################################
+Get Logged In Users Details (GET)
+http://localhost:8000/api/LoggedInUsersDetails/
+Headers
+Authorization: Token 0c3c5c74c549b81898a3f5495e24d929368b0115
+
+##################################################################
+Send Payment(POST)
+Headers
+Authorization: Token 0c3c5c74c549b81898a3f5495e24d929368b0115
+Body:
+ {
+        "receiveremail": "cordeirohayden@gmail.com",
+        "amount": "10"
+}
+##################################################################
+Get pending Transactions(GET)
+http://localhost:8000/api/AllPendingTransaction/
+##################################################################
+
+
+Mine Block (POST)
+Headers
+Authorization: Token 0c3c5c74c549b81898a3f5495e24d929368b0115
+http://localhost:8000/api/MineBlock/
+ {
+         "nonce":"583",
+         "tobehashed":"grejopayedhayden100rs"
+}
+##################################################################
